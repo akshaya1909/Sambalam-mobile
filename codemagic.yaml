@@ -14,15 +14,15 @@ workflows:
           flutter packages pub get
       - name: Install Pods
         script: |
-          # Important: Navigate to the ios folder specifically for pod install
-          cd frontend/ios
-          pod install
+          # This command explicitly tells the machine exactly where the Podfile is
+          pod install --project-directory=frontend/ios
       - name: Flutter build IPA
         script: |
           # Go back to the frontend root to run the flutter build command
           cd frontend
           flutter build ipa --release --no-codesign
     artifacts:
+      - frontend/build/ios/archive/*.xcarchive
       - frontend/build/ios/ipa/*.ipa
     publishing:
       email:
