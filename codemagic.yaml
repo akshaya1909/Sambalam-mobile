@@ -3,13 +3,11 @@ workflows:
     name: Sambalam iOS Release
     max_build_duration: 60
     instance_type: mac_mini_m1
-
     environment:
       flutter: stable
       xcode: latest
       cocoapods: default
-
-   scripts:
+    scripts:
       - name: Get Flutter packages
         script: |
           cd frontend
@@ -17,12 +15,11 @@ workflows:
       - name: Flutter build
         script: |
           cd frontend
-          # We build the ios-framework/archive instead of 'ipa' to avoid the codesign skip
+          # Building ios instead of ipa to ensure artifacts are created
           flutter build ios --release --no-codesign
     artifacts:
       - frontend/build/ios/archive/*.xcarchive
       - frontend/build/ios/iphoneos/*.app
-
     publishing:
       email:
         recipients:
