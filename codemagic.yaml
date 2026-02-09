@@ -9,13 +9,16 @@ workflows:
       cocoapods: default
     scripts:
       - name: Get Flutter packages
-        script: flutter packages pub get
+        script: |
+          cd frontend
+          flutter packages pub get
       - name: Install Pods
         script: |
-          cd ios
+          cd frontend/ios
           pod install
       - name: Flutter build IPA
         script: |
+          cd frontend
           flutter build ipa --release --no-codesign
     artifacts:
       - build/ios/ipa/*.ipa
