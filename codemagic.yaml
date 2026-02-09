@@ -9,19 +9,19 @@ workflows:
       xcode: latest
       cocoapods: default
 
-    scripts:
+   scripts:
       - name: Get Flutter packages
         script: |
           cd frontend
-          flutter pub get
-
-      - name: Build IPA
+          flutter packages pub get
+      - name: Flutter build
         script: |
           cd frontend
-          flutter build ipa --release --no-codesign
-
+          # We build the ios-framework/archive instead of 'ipa' to avoid the codesign skip
+          flutter build ios --release --no-codesign
     artifacts:
-      - frontend/build/ios/ipa/*.ipa
+      - frontend/build/ios/archive/*.xcarchive
+      - frontend/build/ios/iphoneos/*.app
 
     publishing:
       email:
