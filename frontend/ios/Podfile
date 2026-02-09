@@ -1,3 +1,22 @@
+# Add this line at the very top - it's the missing piece!
+require File.expand_path(File.join('..', '..', '..', '..', '..', '..', 'Users', 'builder', 'programs', 'flutter', 'packages', 'flutter_tools', 'bin', 'xcode_backend.sh'), __FILE__) rescue nil
+
+# If the above doesn't work, this is the standard relative path for Flutter projects:
+def flutter_root
+  generated_xcode_build_settings_path = File.expand_path(File.join('..', 'Flutter', 'Generated.xcconfig'), __FILE__)
+  unless File.exist?(generated_xcode_build_settings_path)
+    raise "#{generated_xcode_build_settings_path} must exist. If you're running pod install manually, make sure flutter pub get has been executed."
+  end
+
+  File.foreach(generated_xcode_build_settings_path) do |line|
+    matches = line.match(/\s*FLUTTER_ROOT\s*=\s*(.*)/)
+    return matches[1].strip if matches
+  end
+  raise "FLUTTER_ROOT not found in #{generated_xcode_build_settings_path}. Try deleting Generated.xcconfig and regenerating it."
+end
+
+require File.expand_path(File.join(flutter_root, 'packages', 'flutter_tools', 'bin', 'podhelper'), __FILE__)
+
 platform :ios, '13.0'
 
 target 'Runner' do
