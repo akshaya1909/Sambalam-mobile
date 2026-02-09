@@ -8,23 +8,27 @@ workflows:
       xcode: latest
       cocoapods: default
     scripts:
+      - name: Debug - List Files
+        script: | 
+          # This helps us see the folder structure if it fails
+          ls -R
       - name: Get Flutter packages
         script: |
           cd frontend
           flutter packages pub get
       - name: Install Pods
         script: |
-          # This command explicitly tells the machine exactly where the Podfile is
-          pod install --project-directory=frontend/ios
+          # We enter the directory AND run the command in the same block
+          cd frontend/ios
+          pod install --repo-update
       - name: Flutter build IPA
         script: |
-          # Go back to the frontend root to run the flutter build command
           cd frontend
+          # Adding --no-codesign as we discussed for testing
           flutter build ipa --release --no-codesign
     artifacts:
-      - frontend/build/ios/archive/*.xcarchive
       - frontend/build/ios/ipa/*.ipa
     publishing:
       email:
         recipients:
-          - akshayanatalla356@gmail.com # Your email from the screenshot
+          - akshayanatalia356@gmail.com
