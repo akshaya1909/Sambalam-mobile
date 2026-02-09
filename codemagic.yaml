@@ -3,21 +3,26 @@ workflows:
     name: Sambalam iOS Release
     max_build_duration: 60
     instance_type: mac_mini_m1
+
     environment:
       flutter: stable
       xcode: latest
       cocoapods: default
+
     scripts:
       - name: Get Flutter packages
         script: |
           cd frontend
-          flutter packages pub get
-      - name: Flutter build IPA
+          flutter pub get
+
+      - name: Build IPA
         script: |
           cd frontend
           flutter build ipa --release --no-codesign
+
     artifacts:
       - frontend/build/ios/ipa/*.ipa
+
     publishing:
       email:
         recipients:
