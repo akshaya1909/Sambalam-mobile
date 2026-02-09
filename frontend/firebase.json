@@ -1,0 +1,34 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "salarybox-95a05",
+          "appId": "1:995064371618:android:f07c1713dbfbf95bb47afb",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "salarybox-95a05",
+          "configurations": {
+            "android": "1:995064371618:android:f07c1713dbfbf95bb47afb",
+            "ios": "1:995064371618:ios:d8768db86da82775b47afb",
+            "macos": "1:995064371618:ios:d8768db86da82775b47afb",
+            "web": "1:995064371618:web:5e240660042d17e4b47afb",
+            "windows": "1:995064371618:web:80008d3ebd6da3d4b47afb"
+          }
+        }
+      }
+    }
+  },
+  "emulators": {
+    "auth": {
+      "port": 9099
+    },
+    "ui": {
+      "enabled": true
+    },
+    "singleProjectMode": true
+  }
+}

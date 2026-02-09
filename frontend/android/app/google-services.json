@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "995064371618",
+    "project_id": "salarybox-95a05",
+    "storage_bucket": "salarybox-95a05.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:995064371618:android:f07c1713dbfbf95bb47afb",
+        "android_client_info": {
+          "package_name": "com.example.sambalam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "995064371618-opn720fcd8teos9shinasverm8q6lvnq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sambalam",
+            "certificate_hash": "1976b0cb073132a05bbc1d5a0a901b392d955654"
+          }
+        },
+        {
+          "client_id": "995064371618-2tke5faan54hlq19747q4tc8a9qfhq3m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJ3gp1T3nJqAyO8JKNguUOSb9OUQYY8P0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "995064371618-2tke5faan54hlq19747q4tc8a9qfhq3m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "995064371618-u4fitpnvrp92i6f9dnqplpu2l8p2naf9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.sambalam"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
