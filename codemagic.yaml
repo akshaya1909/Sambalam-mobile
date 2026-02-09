@@ -8,24 +8,14 @@ workflows:
       xcode: latest
       cocoapods: default
     scripts:
-      - name: Debug - List Files
-        script: | 
-          # This helps us see the folder structure if it fails
-          ls -R
-      - name: Get Flutter packages
-        script: |
-          cd frontend
-          flutter packages pub get
-      - name: Install Pods
-        script: |
-          # We enter the directory AND run the command in the same block
-          cd frontend/ios
-          pod install --repo-update
-      - name: Flutter build IPA
-        script: |
-          cd frontend
-          # Adding --no-codesign as we discussed for testing
-          flutter build ipa --release --no-codesign
+  - name: Get Flutter packages
+    script: |
+      cd frontend
+      flutter packages pub get
+  - name: Flutter build IPA
+    script: |
+      cd frontend
+      flutter build ipa --release --no-codesign
     artifacts:
       - frontend/build/ios/ipa/*.ipa
     publishing:
